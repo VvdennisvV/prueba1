@@ -10,27 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/vista1', function () {
-    return view('vista1');
-});
-
-Route::get('/vista2', function () {
-    return view('vista2');
-});
-
-Route::get('/vista3', function () {
-    return view('vista3');
-});
-
-Route::get('/vista4', function () {
-    return view('vista4');
-});
-
-Route::get('/vista5', function () {
-    return view('vista5');
-});
+Route::get('/', 'InicioController@index');
+Route::get('/DocenteCreate', 'InicioController@vistaDocenteCreate');
+Route::get('/DocenteVer', 'InicioController@vistaDocenteVer');
+Route::get('/DocenteEditar', 'InicioController@vistaDocenteEditar');
+Route::get('/DocenteEliminar', 'InicioController@vistaDocenteEliminar');
+//Route::resource('/user','InicioController@index');
+Route::resource('Docente', 'DocenteController');
+Route::resource('/Estudiante', 'EstudianteController');
+Route::resource('/Curso', 'CursoController');
+Route::resource('/Materia', 'MateriaController');
+Route::resource('/Plan_Curricular', 'PlanCurricularController');
