@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class MateriaSeed extends Seeder
+class MateriasTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class MateriaSeed extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\Materia::class, 10)->create();
     }
 }

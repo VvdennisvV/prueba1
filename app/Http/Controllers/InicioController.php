@@ -13,6 +13,12 @@ class InicioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function inicio()
+    {
+        return view('inicio');//
+    }
+
+
     public function index()
     {
         return view('prueba');//

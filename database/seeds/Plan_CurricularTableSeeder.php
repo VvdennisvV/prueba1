@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class Plan_CurricularSeed extends Seeder
+class Plan_CurricularTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class Plan_CurricularSeed extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\Plan_Curricular::class, 4)->create();
     }
 }

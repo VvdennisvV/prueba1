@@ -9,4 +9,6 @@ class Docente extends Model
     protected $table = "Docente";
 
     protected $fillable = ['nombre','apellido','profesion','direccion','celular'];//
+
+    //public function 
 }

@@ -15,9 +15,13 @@ Route::get('/DocenteCreate', 'InicioController@vistaDocenteCreate');
 Route::get('/DocenteVer', 'InicioController@vistaDocenteVer');
 Route::get('/DocenteEditar', 'InicioController@vistaDocenteEditar');
 Route::get('/DocenteEliminar', 'InicioController@vistaDocenteEliminar');
+Route::get('/inicio', 'InicioController@inicio');
 //Route::resource('/user','InicioController@index');
 Route::resource('Docente', 'DocenteController');
 Route::resource('/Estudiante', 'EstudianteController');
 Route::resource('/Curso', 'CursoController');
 Route::resource('/Materia', 'MateriaController');
 Route::resource('/Plan_Curricular', 'PlanCurricularController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
