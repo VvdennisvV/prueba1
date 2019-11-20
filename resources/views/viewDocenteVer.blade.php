@@ -2,7 +2,20 @@
 @section('contenido')
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Docentes</h3>
+            <form class="form-inline" action="{{url('/rutaBuscarVer')}}" method="GET">
+                {{csrf_field()}}
+                <div class="input-group input-group-sm">
+                  <input class="form-control form-control-navbar" name="name" type="search" placeholder="Buscar" aria-label="Search">
+                  <div class="input-group-append">
+                    <button class="btn btn-default" type="submit">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+            </form>
+            <li >
+                <a class="nav-link" href="DocenteReporte"><i class="fas fa-bars"></i></a>
+            </li>
         </div>
         <div class="card-body p-0">
             <table class="table table-striped projects">

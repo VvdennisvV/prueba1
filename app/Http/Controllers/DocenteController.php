@@ -1,8 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
+
 
 use App\Docente;
+
 use Illuminate\Http\Request;
 
 class DocenteController extends Controller
@@ -12,11 +17,18 @@ class DocenteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        /*$docentes = Docente::all();
-        return view('prueba', compact('docentes'));*/
-        //return view('viewDocenteEditar', compact('docentes'));
+        //prueba de Json
+        /*
+        $docentesJSON = Docente::orderBy('id', 'ASC')->get();
+        $response = [
+            'status' => true,
+            'response' => $docentesJSON,
+
+        ];
+        return response()->json($response);
+        */
     }    
 
     /**
@@ -44,7 +56,7 @@ class DocenteController extends Controller
         $docente->direccion = $request->input('direccion');
         $docente->celular = $request->input('celular');
         $docente->save();
-        return 'Guardado';
+        return redirect()->action('InicioController@inicio');
     }
 
     /**
@@ -88,8 +100,8 @@ class DocenteController extends Controller
             $undocente = Docente::find($id);
             $undocente->fill($request->all());
             $undocente->save();
-            return 'Saved';
-    }
+            return redirect()->action('InicioController@vistaDocenteEditar');
+        }
 
     /**
      * Remove the specified resource from storage.
@@ -102,7 +114,36 @@ class DocenteController extends Controller
         $undocente = Docente::find($id);
         $undocente->delete();
         
-        $docentes = Docente::all();
-        return view('viewDocenteEliminar', compact('docentes'));
+        //$docentes = Docente::all();
+        //$docentes = DB::table('Docente')->paginate(3);
+        return redirect()->action('InicioController@vistaDocenteEliminar');
     }
+
+    public function buscarVer(Request $request)
+    {
+        $docentes = Docente::name($request->get('name'))->paginate(3);
+        return view('viewDocenteVer',compact('docentes'));
+    }
+
+    public function buscarEditar(Request $request)
+    {
+        $docentes = Docente::name($request->get('name'))->paginate(3);
+        return view('viewDocenteEditar',compact('docentes'));
+    }
+
+    public function buscarEliminar(Request $request)
+    {
+        $docentes = Docente::name($request->get('name'))->paginate(3);
+        return view('viewDocenteEliminar',compact('docentes'));
+    }
+
+    public function reporte()
+    {
+        $listaDocentes = Docente::All();
+        $viewDatos = \View::make('viewReporte',compact('listaDocentes'))->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($viewDatos);
+        return $pdf->stream();
+    }
+
 }

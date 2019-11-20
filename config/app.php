@@ -175,6 +175,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        //servicio de reportes con barry
+        Barryvdh\DomPDF\ServiceProvider::class,
+
     ],
 
     /*
@@ -225,6 +228,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        //Alias de reportes con barry
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

@@ -8,7 +8,13 @@ class Docente extends Model
 {
     protected $table = "Docente";
 
-    protected $fillable = ['nombre','apellido','profesion','direccion','celular'];//
+    protected $fillable = ['nombre','apellido','profesion','direccion','celular'];
 
-    //public function 
+    public function scopeName($query ,$name)
+    {
+        if(trim($name) != "")
+        {
+            $query->where('nombre',"LIKE","%$name%");
+        }
+    }
 }

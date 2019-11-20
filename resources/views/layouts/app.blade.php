@@ -10,7 +10,11 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    {{--<script src="{{ asset('js/app.js') }}" defer></script>--}}
+    <script src="{{asset('asset/adminLTE/plugins/jquery/jquery.min.js')}}"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{{asset('asset/adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <!-- AdminLTE App -->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

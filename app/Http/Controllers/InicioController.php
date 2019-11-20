@@ -15,13 +15,13 @@ class InicioController extends Controller
      */
     public function inicio()
     {
-        return view('inicio');//
+        return view('prueba');//
     }
 
 
     public function index()
     {
-        return view('prueba');//
+        return view('ingresar');//
     }
 
     public function vistaDocenteCreate()
@@ -42,12 +42,14 @@ class InicioController extends Controller
 
     public function vistaDocenteEditar()
     {
-        $docentes = Docente::all();
+        //$docentes = Docente::all();
+        $docentes = DB::table('Docente')->paginate(3);
         return view('viewDocenteEditar', compact('docentes'));
     }
     public function vistaDocenteEliminar()
     {
-        $docentes = Docente::all();
+        //$docentes = Docente::all();
+        $docentes = DB::table('Docente')->paginate(3);
         return view('viewDocenteEliminar', compact('docentes'));//
     }
     /**
