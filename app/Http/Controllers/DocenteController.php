@@ -140,7 +140,8 @@ class DocenteController extends Controller
     public function reporte()
     {
         $listaDocentes = Docente::All();
-        $viewDatos = \View::make('viewReporte',compact('listaDocentes'))->render();
+        $cantDocentes = Docente::count();
+        $viewDatos = \View::make('viewReporte',compact('listaDocentes','cantDocentes'))->render();
         $pdf = \App::make('dompdf.wrapper');
         $pdf->loadHTML($viewDatos);
         return $pdf->stream();
