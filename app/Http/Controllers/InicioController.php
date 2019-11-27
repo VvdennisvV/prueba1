@@ -24,8 +24,9 @@ class InicioController extends Controller
         return view('ingresar');//
     }
 
-    public function vistaDocenteCreate()
+    public function vistaDocenteCreate(Request $request)
     {
+        $request->user()->authorizeRoles('admin');
         return view('viewDocenteCreate');//
     }
 

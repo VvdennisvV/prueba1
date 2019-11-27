@@ -18,6 +18,11 @@ class DatabaseSeeder extends Seeder
             CursosTableSeeder::class,
             MateriasTableSeeder::class,
             EstudiantesTableSeeder::class,
+            EstudiantesTableSeeder::class,
         ]);
+
+        $this->call(RoleTableSeeder::class);
+        $this->call(UserTableSeeder::class);
+
     }
 }
