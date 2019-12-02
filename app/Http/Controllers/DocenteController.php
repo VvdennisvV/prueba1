@@ -56,7 +56,7 @@ class DocenteController extends Controller
         $docente->direccion = $request->input('direccion');
         $docente->celular = $request->input('celular');
         $docente->save();
-        return redirect()->action('InicioController@inicio');
+        //return redirect()->action('InicioController@inicio');
     }
 
     /**

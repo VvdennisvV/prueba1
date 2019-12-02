@@ -35,7 +35,28 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $curso = new Curso();
+        $curso->nombre = $request->input('nombre');
+        $curso->aula = $request->input('aula');
+        $curso->save();
+    }
+
+    public function buscarVer(Request $request)
+    {
+        $cursos = Curso::name($request->get('name'))->paginate(3);
+        return view('viewCursoVer',compact('cursos'));
+    }
+
+    public function buscarEditar(Request $request)
+    {
+        $cursos = Curso::name($request->get('name'))->paginate(3);
+        return view('viewCursoEditar',compact('cursos'));
+    }
+
+    public function buscarEliminar(Request $request)
+    {
+        $cursos = Curso::name($request->get('name'))->paginate(3);
+        return view('viewCursoEliminar',compact('cursos'));
     }
 
     /**
@@ -67,9 +88,12 @@ class CursoController extends Controller
      * @param  \App\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Curso $curso)
+    public function update(Request $request, $id)
     {
-        //
+        $uncurso = Curso::find($id);
+        $uncurso->fill($request->all());
+        $uncurso->save();
+        return redirect()->action('InicioController@vistaCursoEditar');
     }
 
     /**
@@ -78,8 +102,10 @@ class CursoController extends Controller
      * @param  \App\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Curso $curso)
+    public function destroy($id)
     {
-        //
+        $uncurso = Curso::find($id);
+        $uncurso->delete();
+        return redirect()->action('InicioController@vistaCursoEliminar');
     }
 }

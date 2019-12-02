@@ -53,6 +53,76 @@ class InicioController extends Controller
         $docentes = DB::table('Docente')->paginate(3);
         return view('viewDocenteEliminar', compact('docentes'));//
     }
+    /*Funcion que carga la vista, para crear nuevo estudiante*/
+    public function vistaEstudianteCreate()
+    {
+        return view('viewEstudianteCreate');
+    }
+
+    public function vistaEstudianteVer()
+    {
+        $estudiantes = DB::table('Estudiante')->paginate(3);
+        return view('viewEstudianteVer', compact('estudiantes'));
+    }
+
+    public function vistaEstudianteEditar()
+    {
+        $estudiantes = DB::table('Estudiante')->paginate(3);
+        return view('viewEstudianteEditar', compact('estudiantes'));
+    }
+
+    public function vistaEstudianteEliminar()
+    {
+        $estudiantes = DB::table('Estudiante')->paginate(3);
+        return view('viewEstudianteEliminar', compact('estudiantes'));//
+    }
+
+    public function vistaMateriaCreate()
+    {
+        return view('viewMateriaCreate');
+    }
+
+    public function vistaMateriaVer()
+    {
+        $materias = DB::table('Materia')->paginate(3);
+        return view('viewMateriaVer', compact('materias'));
+    }
+
+    public function vistaMateriaEditar()
+    {
+        $materias = DB::table('Materia')->paginate(3);
+        return view('viewMateriaEditar', compact('materias'));
+    }
+
+    public function vistaMateriaEliminar()
+    {
+        $materias = DB::table('Materia')->paginate(3);
+        return view('viewMateriaEliminar', compact('materias'));//
+    }
+
+    public function vistaCursoCreate()
+    {
+        return view('viewCursoCreate');
+    }
+
+    public function vistaCursoVer()
+    {
+        $cursos = DB::table('Curso')->paginate(3);
+        return view('viewCursoVer', compact('cursos'));
+    }
+
+    public function vistaCursoEditar()
+    {
+        $cursos = DB::table('Curso')->paginate(3);
+        return view('viewCursoEditar', compact('cursos'));
+    }
+
+    public function vistaCursoEliminar()
+    {
+        $cursos = DB::table('Curso')->paginate(3);
+        return view('viewCursoEliminar', compact('cursos'));//
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -35,7 +35,30 @@ class MateriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $materia = new Materia();
+        $materia->nombre = $request->input('nombre');
+        $materia->profesor = $request->input('docente');
+        $materia->curricula = $request->input('curricula');
+        $materia->IdCurso = $request->input('curso');
+        $materia->save();
+    }
+
+    public function buscarVer(Request $request)
+    {
+        $materias = Materia::name($request->get('name'))->paginate(3);
+        return view('viewMateriaVer',compact('materias'));
+    }
+
+    public function buscarEditar(Request $request)
+    {
+        $materias = Materia::name($request->get('name'))->paginate(3);
+        return view('viewMateriaEditar',compact('materias'));
+    }
+
+    public function buscarEliminar(Request $request)
+    {
+        $materias = Materia::name($request->get('name'))->paginate(3);
+        return view('viewMateriaEliminar',compact('materias'));
     }
 
     /**
@@ -67,9 +90,13 @@ class MateriaController extends Controller
      * @param  \App\Materia  $materia
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Materia $materia)
+    public function update(Request $request, $id)
     {
-        //
+        $unaMateria = Materia::find($id);
+        $unaMateria->fill($request->all());
+        $unaMateria->save();
+        return redirect()->action('InicioController@vistaMateriaEditar');
+
     }
 
     /**
@@ -78,8 +105,10 @@ class MateriaController extends Controller
      * @param  \App\Materia  $materia
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Materia $materia)
+    public function destroy($id)
     {
-        //
+        $unaMateria = Materia::find($id);
+        $unaMateria->delete();
+        return redirect()->action('InicioController@vistaMateriaEliminar');
     }
 }

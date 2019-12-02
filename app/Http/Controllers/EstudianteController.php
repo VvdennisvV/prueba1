@@ -35,7 +35,30 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $estudiante = new Estudiante();
+        $estudiante->nombre = $request->input('nombre');
+        $estudiante->apellido = $request->input('apellido');
+        $estudiante->IdCurso = $request->input('curso');
+        $estudiante->carrera = $request->input('carrera');
+        $estudiante->save();
+    }
+
+    public function buscarVer(Request $request)
+    {
+        $estudiantes = Estudiante::name($request->get('name'))->paginate(3);
+        return view('viewEstudianteVer',compact('estudiantes'));
+    }
+
+    public function buscarEditar(Request $request)
+    {
+        $estudiantes = Estudiante::name($request->get('name'))->paginate(3);
+        return view('viewEstudianteEditar',compact('estudiantes'));
+    }
+
+    public function buscarEliminar(Request $request)
+    {
+        $estudiantes = Estudiante::name($request->get('name'))->paginate(3);
+        return view('viewEstudianteEliminar',compact('estudiantes'));
     }
 
     /**
@@ -67,9 +90,12 @@ class EstudianteController extends Controller
      * @param  \App\Estudiante  $estudiante
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Estudiante $estudiante)
+    public function update(Request $request, $id)
     {
-        //
+        $unestudiante = Estudiante::find($id);
+        $unestudiante->fill($request->all());
+        $unestudiante->save();
+        return redirect()->action('InicioController@vistaEstudianteEditar');
     }
 
     /**
@@ -78,8 +104,10 @@ class EstudianteController extends Controller
      * @param  \App\Estudiante  $estudiante
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Estudiante $estudiante)
+    public function destroy($id)
     {
-        //
+        $unestudiante = Estudiante::find($id);
+        $unestudiante->delete();
+        return redirect()->action('InicioController@vistaEstudianteEliminar');
     }
 }

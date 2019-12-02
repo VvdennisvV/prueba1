@@ -8,5 +8,15 @@ class Materia extends Model
 {
     protected $table = "Materia";
 
-    protected $fillable = ['nombre'];//
+    protected $fillable = ['nombre'];
+
+    public function scopeName($query ,$name)
+    {
+        if(trim($name) != "")
+        {
+            $query->where('nombre',"LIKE","%$name%");
+        }
+    }
+
+
 }

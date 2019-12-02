@@ -71,22 +71,22 @@
                             </small>
                         </td>
                         <td class="project-actions text-right">
-                            <a class="btn btn-primary btn-sm" href="#">
+                            <a class="btn btn-primary btn-sm" href="/EstudianteCreate">
                                 <i class="fas fa-folder">
                                 </i>
                                 Create
                             </a>
-                            <a class="btn btn-primary btn-sm" href="#">
+                            <a class="btn btn-primary btn-sm" href="/EstudianteVer">
                                 <i class="fas fa-folder">
                                 </i>
                                 View
                             </a>
-                            <a class="btn btn-info btn-sm" href="#">
+                            <a class="btn btn-info btn-sm" href="/EstudianteEditar">
                                 <i class="fas fa-pencil-alt">
                                 </i>
                                 Edit
                             </a>
-                            <a class="btn btn-danger btn-sm" href="#">
+                            <a class="btn btn-danger btn-sm" href="/EstudianteEliminar">
                                 <i class="fas fa-trash">
                                 </i>
                                 Delete
@@ -107,22 +107,22 @@
                             </small>
                         </td>
                         <td class="project-actions text-right">
-                            <a class="btn btn-primary btn-sm" href="#">
+                            <a class="btn btn-primary btn-sm" href="/MateriaCreate">
                                     <i class="fas fa-folder">
                                     </i>
                                     Create
                             </a>
-                            <a class="btn btn-primary btn-sm" href="#">
+                            <a class="btn btn-primary btn-sm" href="/MateriaVer">
                                 <i class="fas fa-folder">
                                 </i>
                                 View
                             </a>
-                            <a class="btn btn-info btn-sm" href="#">
+                            <a class="btn btn-info btn-sm" href="/MateriaEditar">
                                 <i class="fas fa-pencil-alt">
                                 </i>
                                 Edit
                             </a>
-                            <a class="btn btn-danger btn-sm" href="#">
+                            <a class="btn btn-danger btn-sm" href="/MateriaEliminar">
                                 <i class="fas fa-trash">
                                 </i>
                                 Delete
@@ -143,22 +143,22 @@
                             </small>
                         </td>
                         <td class="project-actions text-right">
-                            <a class="btn btn-primary btn-sm" href="#">
+                            <a class="btn btn-primary btn-sm" href="/CursoCreate">
                                         <i class="fas fa-folder">
                                         </i>
                                         Create
                             </a>
-                            <a class="btn btn-primary btn-sm" href="#">
+                            <a class="btn btn-primary btn-sm" href="/CursoVer">
                                 <i class="fas fa-folder">
                                 </i>
                                 View
                             </a>
-                            <a class="btn btn-info btn-sm" href="#">
+                            <a class="btn btn-info btn-sm" href="/CursoEditar">
                                 <i class="fas fa-pencil-alt">
                                 </i>
                                 Edit
                             </a>
-                            <a class="btn btn-danger btn-sm" href="#">
+                            <a class="btn btn-danger btn-sm" href="/CursoEliminar">
                                 <i class="fas fa-trash">
                                 </i>
                                 Delete
