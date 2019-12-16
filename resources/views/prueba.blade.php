@@ -1,5 +1,43 @@
 @extends('theme.lte.layout')
 
+@section('aside')
+    <li class="nav-item has-treeview">
+        <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-copy"></i>
+            <p>
+            Docente
+            <i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview">
+            <li class="nav-item">
+            <a href="/DocenteCreate" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Crear</p>
+            </a>
+            </li>
+            <li class="nav-item">
+            <a href="/DocenteVer" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Ver</p>
+            </a>
+            </li>
+            <li class="nav-item">
+            <a href="/DocenteEditar" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Editar</p>
+            </a>
+            </li>
+            <li class="nav-item">
+            <a href="/DocenteEliminar" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Eliminar</p>
+            </a>
+            </li>
+        </ul>
+    </li>
+@endsection
+
 @section('contenido')
 
     <div class="card">

@@ -58,7 +58,7 @@ Route::get('/CursoEliminar', 'InicioController@vistaCursoEliminar');
 Route::get('/rutaCursoBuscarVer', 'CursoController@buscarVer');
 Route::get('/rutaCursoBuscarEditar', 'CursoController@buscarEditar');
 Route::get('/rutaCursoBuscarEliminar', 'CursoController@buscarEliminar');
-
-
-
+//Reportes
 Route::get('DocenteReporte', 'DocenteController@reporte');
+//rutas de admin
+Route::resource('/AdminUsuario', 'UserController');

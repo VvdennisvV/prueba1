@@ -23,7 +23,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //return view('login');
-        return view('prueba');
+        if (auth()->user()->privilegio == 'admin') {
+            return view('admin.vistaAdmin');
+        }
+        else{
+            return view('prueba');
+        }
+        //return view('prueba');
     }
 }

@@ -76,7 +76,7 @@
                             <div class="modal-body">
                                     <div class="col-sm-6">
                                         <div class="card card-primary">
-                                            <div class="card-header">
+                                            <div class="card-header bg-info">
                                                 <h3 class="card-title">Editar</h3>
                                             </div>
                                             <div class="card-body">
